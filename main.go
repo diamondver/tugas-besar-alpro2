@@ -24,10 +24,8 @@ func main() {
 // The function centers each line of text and adds decorative borders
 // around the entire title.
 func PrintTitle(title string) {
-	var width int
+	const width int = 38
 	var start, currentPos, lastSpace int
-
-	width = 38
 
 	if len(title) <= width {
 		printBorder()
