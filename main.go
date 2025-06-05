@@ -12,7 +12,42 @@ func main() {
 		if err != nil {
 			return
 		}
+
+		switch input {
+		case 1:
+			LoginView()
+		case 2:
+			RegisterView()
+		case 3:
+			AdminMenuView()
+		}
 	}
+}
+
+// View
+
+// LoginView displays the login screen interface.
+// It renders a navigation breadcrumb showing the current location
+// and prints a formatted LOGIN title header.
+func LoginView() {
+	PrintBreadcrumbs([255]string{"Login"}, 1)
+	PrintTitle("LOGIN")
+}
+
+// RegisterView displays the registration screen interface.
+// It renders a navigation breadcrumb showing the current location
+// and prints a formatted REGISTER title header.
+func RegisterView() {
+	PrintBreadcrumbs([255]string{"Register"}, 1)
+	PrintTitle("REGISTER")
+}
+
+// AdminMenuView displays the administrator menu interface.
+// It renders a navigation breadcrumb showing the current location
+// and prints a formatted ADMIN MENU title header.
+func AdminMenuView() {
+	PrintBreadcrumbs([255]string{"Admin Menu"}, 1)
+	PrintTitle("ADMIN MENU")
 }
 
 // Helper
@@ -122,4 +157,23 @@ func PrintMenu(menuTitle string, menu [255]string, n int, answer *int) error {
 	*answer = input
 
 	return nil
+}
+
+// PrintBreadcrumbs displays a hierarchical navigation path starting with "Main Menu".
+// It prints the first n elements from the links array, separated by " > " characters.
+// The last element is printed without a trailing separator.
+//
+// Parameters:
+//   - links: an array of string elements representing navigation levels
+//   - n: the number of elements from links to include in the breadcrumb trail
+func PrintBreadcrumbs(links [255]string, n int) {
+	fmt.Print("Main Menu > ")
+	for i := 0; i < n; i++ {
+		if i == n-1 {
+			fmt.Print(links[i])
+		} else {
+			fmt.Print(links[i] + " > ")
+		}
+	}
+	fmt.Println()
 }
