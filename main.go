@@ -166,7 +166,7 @@ func PrintMenu(menuTitle string, menu [255]string, n int, answer *int) error {
 // Parameters:
 //   - links: an array of string elements representing navigation levels
 //   - n: the number of elements from links to include in the breadcrumb trail
-func PrintBreadcrumbs(links [255]string, n int) {
+func PrintBreadcrumbs(links []string, n int) {
 	fmt.Print("Main Menu > ")
 	for i := 0; i < n; i++ {
 		if i == n-1 {
