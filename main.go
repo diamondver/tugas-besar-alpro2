@@ -372,7 +372,7 @@ func EditKomentarView(user User, isAdmin bool) {
 
 	for {
 		fmt.Print("ID: ")
-		_, err := fmt.Scanln(&inputId)
+		_, err := fmt.Scan(&inputId)
 		if err != nil {
 			fmt.Println(err.Error())
 		} else if err := FindCommentById(inputId, &commentToEdit); err != nil {
@@ -761,7 +761,7 @@ func LihatSemuaUserAdminView() {
 		case 1:
 			var search string
 			fmt.Print("Masukkan kata kunci untuk mencari user: ")
-			_, err = fmt.Scanln(&search)
+			_, err = fmt.Scan(&search)
 			if err != nil {
 				fmt.Println(err.Error())
 				continue
@@ -983,7 +983,7 @@ func LihatGrafikView() {
 	fmt.Println("Jumlah Komentar Positif:", CountCommentsByCategory("positif"))
 	fmt.Println("Jumlah Komentar Netral:", CountCommentsByCategory("netral"))
 	fmt.Println("Jumlah Komentar Negatif:", CountCommentsByCategory("negatif"))
-	fmt.Scanln()
+	fmt.Scan()
 }
 
 // Form
